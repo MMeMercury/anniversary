@@ -28,12 +28,29 @@ import Particles from 'react-tsparticles';
   }}
 />
 
+const getTimeSince = () => {
+  const start = new Date('2025-03-15T18:00:00');
+  const now = new Date();
+  let diff = Math.max(0, now - start);
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  diff -= days * (1000 * 60 * 60 * 24);
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  diff -= hours * (1000 * 60 * 60);
+  const minutes = Math.floor(diff / (1000 * 60));
+  diff -= minutes * (1000 * 60);
+  const seconds = Math.floor(diff / 1000);
+
+  return `${days}天${hours}小时${minutes}分${seconds}秒`;
+};
+
+const time=getTimeSince();
 
 const messages = [
   'Floyd, 你好哇！',
   '欢迎来到我们的网站',
   '距离我们开启确定的关系，和漫不经心打打闹闹的日子已经',
-  '100天了！',
+  `${time}了`,
 ];
 
 function launchConfetti() {
@@ -68,7 +85,7 @@ const HomePage = () => {
     sparkle.innerText = Math.random() > 0.5 ? '✨' : '💗';
   
     const container = textContainerRef.current;
-    const offset = Math.random() * 80 - 40;
+    const offset = Math.random() * 100 - 50;
     sparkle.style.left = `${50 + offset}%`;
   
     container?.appendChild(sparkle);

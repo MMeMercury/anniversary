@@ -8,6 +8,7 @@
   font-size: 2rem;
   text-align: center;
   min-height: 3rem;
+  overflow: hidden;
 }
 
 
@@ -19,7 +20,9 @@
   align-items: center;
   height: 100vh; // 全屏高度
   text-align: center;
+  overflow: hidden;
 }
+
 
 
 @keyframes bgflow {
@@ -70,12 +73,15 @@
 .falling-sparkle {
   position: absolute;
   top: 0;
+  left: 0;
   font-size: 1.5rem;
   animation: fallDown 5s linear forwards;
   opacity: 0.9;
   pointer-events: none;
-  // transform: rotate(${Math.random() * 360}deg);
+  will-change: transform, opacity;
+  overflow: hidden;
 }
+
 
 @keyframes fallDown {
   0% {
@@ -86,7 +92,7 @@
     opacity: 0.9;
   }
   100% {
-    transform: translateY(100vh) rotate(180deg);
+    transform: translateY(95vh) rotate(180deg);
     opacity: 0.7;
   }
 }
