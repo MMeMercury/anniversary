@@ -1,0 +1,83 @@
+.flip-digit {
+    position: relative;
+    width: 60px;
+    height: 90px;
+    font-size: 60px;
+    font-weight: bold;
+    perspective: 200px;
+    margin: 0 5px;
+    color: #fff;
+    background: #333;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 90px;
+    overflow: hidden;
+  
+    .upper,
+    .lower {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      left: 0;
+      background: #444;
+      z-index: 1;
+    }
+  
+    .upper {
+      top: 0;
+      border-bottom: 1px solid #222;
+    }
+  
+    .lower {
+      bottom: 0;
+      border-top: 1px solid #222;
+    }
+  
+    .flip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-style: preserve-3d;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+  
+      .flip-top,
+      .flip-bottom {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        background: #444;
+        backface-visibility: hidden;
+      }
+  
+      .flip-top {
+        top: 0;
+        transform-origin: bottom;
+        transform: rotateX(0deg);
+        border-bottom: 1px solid #222;
+      }
+  
+      .flip-bottom {
+        bottom: 0;
+        transform-origin: top;
+        transform: rotateX(90deg);
+        border-top: 1px solid #222;
+      }
+    }
+  
+    .animate {
+      animation: flipAnimation 0.6s ease forwards;
+    }
+  }
+  
+  @keyframes flipAnimation {
+    0% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(-180deg);
+    }
+  }
+  

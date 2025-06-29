@@ -1,4 +1,110 @@
 // HomePage.scss
+
+.card-container {
+  background: #2c292c;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  perspective: 500px;
+  text-align: center;
+}
+
+.card-container-text {
+  background: #2c292c;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  perspective: 500px;
+  text-align: center;
+}
+.card-container::before {
+  z-index: 99;
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  background: #120f12;
+  width: 100%;
+  height: 6px;
+  margin-top: -3px;
+}
+
+
+/* 因为所有的数字都有公共部分，我们提取出来 */
+.card-item {
+  position: absolute;
+  width: 100%;
+  /* 因为每个卡片只有半个数字，所以高度只有百分之50 */
+  height: 50%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background: #2c292c;
+  font-size: 8rem;
+  color: #fff;
+}
+
+.card-item-text {
+  position: relative;
+  width: 100%;
+  /* 因为每个卡片只有半个数字，所以高度只有百分之50 */
+  top: 45px;
+  left: 0;
+
+  overflow: hidden;
+  background: #2c292c;
+  font-size: 5rem;
+  color: #fff;
+}
+
+.card1 {
+  top:0;
+  line-height: 200px;
+  transform: rotateX(0deg);
+  transition: transform 0.4s ;
+}
+
+.card2 {
+  z-index: 2;
+  top: 50%;
+  line-height: 0;
+  /* 变换原点为上边的中部 */
+  transform-origin: center top;
+  /* 对折 180 度 */
+    transform: rotateX(180deg);
+  /* 通过这个属性让元素的背面隐藏 */
+  backface-visibility: hidden;
+  
+}
+
+
+.card3 {
+  line-height: 200px;
+  transform-origin: center bottom;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+  
+
+.card4 {
+  top: 50%;
+  line-height: 0
+}
+
+.card-container.flip .card2 {
+ transform: rotateX(0deg);
+  transition: transform 0.5s ;
+}
+
+// hover 时让 .card3 翻转到 -180 度（即正面朝上）
+.card-container.flip .card3 {
+    transform: rotateX(-90deg);
+  transition: transform 0.4s ;
+}
+
+
+
+
 .typewriter-text {
   color: #ff5e94;
   margin-top: 1rem;
