@@ -1,33 +1,11 @@
-# 我们的纪念日
+# Anniversary — GitHub Pages build
 
-基于原版 React 项目继续开发，保留粉蓝渐变、爱心、打字欢迎语和翻页数字。
+Built from MMeMercury/anniversary source commit 44900ff856328d057f50375f55b90e7e94922d85.
 
-## 功能
+Publishing source: gh-pages branch, /(root).
 
-- 按纪念日起始时间实时计算相伴天数；未来日期自动切换倒计时。
-- 显示下一次周年纪念日，处理周年当天、闰年与本地日期边界。
-- 编辑双方姓名、日期、欢迎语、副标题和信件。
-- 添加、编辑、删除回忆，可上传 JPG、PNG、WebP 照片，上传后自动压缩。
-- 拆信、爱心礼花、暂停动画，以及系统减少动态效果支持。
-- 手机与桌面布局、键盘弹窗操作和焦点恢复。
+Rebuild from the source checkout with:
+PUBLIC_URL=/anniversary GENERATE_SOURCEMAP=false npm run build
 
-## 本地运行
-
-```sh
-npm ci
-npm start
-```
-
-生产构建：`npm run build`，输出在 `build/`。
-
-现有功能测试：`CI=true npm test -- --watchAll=false --runInBand`。
-
-## 数据说明
-
-姓名、纪念日、回忆和照片通过 localStorage 保存在当前浏览器，不会自动上传或跨设备同步。清除浏览器数据会删除记录。照片最大 10 MB，压缩后需小于约 700 KB 的数据字符串；浏览器空间不足时会保留正在编辑的内容并提示，不会显示保存成功。
-
-时间按设备本地时区解释；周年倒计时按日历日期计算，2 月 29 日在非闰年按 2 月 28 日处理。计时天数为实际经过的 24 小时时段。
-
-## 部署
-
-此仓库保留 Create React App 工具链。任意静态托管服务均可部署 `build/`。当前 Sites 部署配置位于 `.openai/hosting.json`。
+Replace this branch with the contents of build/. Keep .nojekyll.
+Browser data is local to each visitor and origin; photos and settings do not synchronize between hosting domains.

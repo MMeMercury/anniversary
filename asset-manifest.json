@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/anniversary/static/css/main.99fffbfe.css",
+    "main.js": "/anniversary/static/js/main.7d9710fd.js",
+    "static/js/206.d60a4c88.chunk.js": "/anniversary/static/js/206.d60a4c88.chunk.js",
+    "index.html": "/anniversary/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.99fffbfe.css",
+    "static/js/main.7d9710fd.js"
+  ]
+}
