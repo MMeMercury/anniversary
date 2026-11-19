@@ -77,6 +77,15 @@ test('uses local midnight for a legacy date-only start without rewriting storage
   expect(localStorage.getItem('anniversary-config')).toBe(stored);
 });
 
+test('refreshes the previous default welcome while preserving personalized copy and stored data', () => {
+  const oldDefault = JSON.stringify({ ...config, greeting: '每一个平凡的日子，因为有你而闪闪发光。' });
+  localStorage.setItem('anniversary-config', oldDefault);
+  expect(loadLocalState().config.greeting).toBe('一緒にお散歩しよう。');
+  expect(localStorage.getItem('anniversary-config')).toBe(oldDefault);
+  localStorage.setItem('anniversary-config', JSON.stringify(config));
+  expect(loadLocalState().config.greeting).toBe(config.greeting);
+});
+
 test('preserves valid memory text while removing duplicate IDs, invalid dates, and non-raster images', () => {
   const raw = JSON.stringify([
     memory,

@@ -3,6 +3,7 @@ import { FaHeart } from 'react-icons/fa';
 import { FiCalendar, FiEdit2, FiPause, FiPlay, FiPlus, FiSettings, FiTrash2, FiX } from 'react-icons/fi';
 import confetti from 'canvas-confetti';
 import Countdown from '../components/Countdown';
+import AvatarCollection from '../components/AvatarCollection';
 import Modal from '../components/Modal';
 import PhotoField from '../components/PhotoField';
 import TypewriterText from '../components/TypewriterText';
@@ -111,12 +112,12 @@ export default function HomePage() {
     <div className="floating-hearts" aria-hidden="true">{Array.from({ length: 10 }, (_, index) => <span key={index} style={{ '--i': index }}>♡</span>)}</div>
     <nav className="topbar" aria-label="主导航">
       <a className="brand" href="#home"><span className="brand-mark"><FaHeart /></span>我们的纪念日</a>
-      <div className="nav-links"><a href="#counter">时光</a><a href="#memories">回忆</a><a href="#letter">写给你</a></div>
+      <div className="nav-links"><a href="#counter">时光</a><a href="#avatars">情侣头像</a><a href="#memories">回忆</a><a href="#letter">写给你</a></div>
       <div className="topbar-actions"><button className="icon-button motion-toggle" type="button" aria-label={motionPaused ? '开启动画' : '暂停动画'} aria-pressed={motionPaused} onClick={() => setMotionPaused(value => !value)}>{motionPaused ? <FiPlay /> : <FiPause />}</button><button className="settings-trigger" type="button" aria-label="编辑纪念日" onClick={() => setDialog({ type: 'settings' })}><FiSettings /><span>编辑纪念日</span></button></div>
     </nav>
 
     <section className="hero" id="home" aria-labelledby="hero-title">
-      <div className="hero-copy"><p className="eyebrow">OUR LITTLE FOREVER</p><p className="hero-intro">世界很大，而你刚好在这里。</p>
+      <div className="hero-copy"><p className="eyebrow">OUR LITTLE FOREVER</p>
         <h1 id="hero-title"><span className="name-first">{config.firstName}</span><b className="hero-heart" aria-label="和">♥</b><span className="name-second">{config.secondName}</span></h1>
         <p className="hero-greeting"><TypewriterText text={config.greeting} paused={motionPaused} /></p><p className="hero-subtitle">{config.subtitle}</p>
         <div className="hero-actions"><a className="primary-button" href="#counter"><FaHeart />看看我们的时光</a><button className="secondary-button" type="button" onClick={celebrate}>送你一颗心</button></div>
@@ -130,6 +131,8 @@ export default function HomePage() {
       <div className="counter-shell"><div className="counter-topline"><span><span aria-hidden="true">♥</span> {parts.isFuture ? '等待故事开始' : '每一秒，都算数'}</span><span>{dateText(config.startDate)} {config.startDate.slice(11, 16)}</span></div><Countdown parts={parts} /><p className="counter-footer">{parts.isFuture ? '直到那一刻，我们开始一起数日子。' : '从相遇的那一天，到以后每一个明天。'}</p></div>
       {anniversary && <div className="milestone"><span className="milestone-icon"><FiCalendar /></span><div className="milestone-copy"><span>下一份小小的期待</span><strong>{anniversary.isStart ? '我们的故事即将开始' : anniversary.isToday ? `${anniversary.years} 周年快乐！` : `我们的 ${anniversary.years} 周年纪念日`}</strong><small>{dateText(dateValue(anniversary.date))}</small></div><div className="milestone-days"><strong>{anniversary.isToday ? '♥' : anniversary.daysRemaining}</strong><span>{anniversary.isToday ? '就是今天' : '天后见'}</span></div></div>}
     </section>
+
+    <AvatarCollection firstName={config.firstName} secondName={config.secondName} onNotice={setNotice} />
 
     <section className="memories-section" id="memories" aria-labelledby="memories-title">
       <div className="memories-heading"><header className="section-heading"><p className="section-kicker">MOMENTS TO KEEP</p><h2 id="memories-title">把喜欢的瞬间，慢慢收藏</h2><p className="section-description">一张照片，一段小事，都是我们故事里的一页。</p></header><button className="secondary-button" type="button" onClick={() => setDialog({ type: 'memory' })}><FiPlus />添加一段回忆</button></div>
