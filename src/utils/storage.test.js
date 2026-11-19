@@ -29,10 +29,10 @@ test('opens first use with the established start and one editable memory without
   const result = loadLocalState();
 
   expect(result).toMatchObject({
-    config: { firstName: 'Coconut', secondName: 'Mio', startDate: '2026-11-02T18:00' },
+    config: { firstName: 'Coconut', secondName: 'Mio', startDate: '2026-11-12T23:23' },
     memories: [{
       id: 'origin',
-      date: '2026-11-02',
+      date: '2026-11-12',
       title: '故事的开始',
       note: '从这一天起，我们开始一起记录时间。',
       image: '',
@@ -48,7 +48,7 @@ test('falls back from malformed or invalid-shaped data without overwriting the s
 
   const result = loadLocalState();
 
-  expect(result.config.startDate).toBe('2026-11-02T18:00');
+  expect(result.config.startDate).toBe('2026-11-12T23:23');
   expect(result.memories).toHaveLength(1);
   expect(result.notice).toMatch(/读取/);
   expect(localStorage.getItem('anniversary-config')).toBe('{unfinished');
@@ -61,7 +61,7 @@ test('fills invalid config fields while keeping recoverable text and the stored 
 
   const result = loadLocalState();
 
-  expect(result.config).toEqual({ ...config, startDate: '2026-11-02T18:00' });
+  expect(result.config).toEqual({ ...config, startDate: '2026-11-12T23:23' });
   expect(result.notice).toMatch(/读取/);
   expect(localStorage.getItem('anniversary-config')).toBe(stored);
 });

@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Work in `MMeMercury/anniversary`; retain existing Coconut/Mio and `2026-11-02T18:00` defaults.
+- Work in `MMeMercury/anniversary`; retain existing Coconut/Mio and `2026-11-12T23:23` defaults.
 - Preserve pink/blue gradients, dark split-flap clock, typing, hearts, and celebration.
 - Use current-browser local storage only; explain no cross-device sharing.
 - No invented personal photos. Validate dates, malformed data, image limits, and storage failures.

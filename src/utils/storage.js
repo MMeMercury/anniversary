@@ -19,7 +19,7 @@ export const STORAGE_LIMITS = Object.freeze({
 export const DEFAULT_CONFIG = Object.freeze({
   firstName: 'Coconut',
   secondName: 'Mio',
-  startDate: '2026-11-02T18:00',
+  startDate: '2026-11-12T23:23',
   greeting: '每一个平凡的日子，因为有你而闪闪发光。',
   subtitle: 'Some moments become memories. Some memories become forever.',
   letter: '亲爱的你，\n\n谢谢你陪我走过这些平凡的日子。和你在一起，连小小的事情也值得记下来。\n\n以后的日子，我们也慢慢走，一起看。',
@@ -28,7 +28,7 @@ export const DEFAULT_CONFIG = Object.freeze({
 export const DEFAULT_MEMORIES = Object.freeze([
   Object.freeze({
     id: 'origin',
-    date: '2026-11-02',
+    date: '2026-11-12',
     title: '故事的开始',
     note: '从这一天起，我们开始一起记录时间。',
     image: '',
