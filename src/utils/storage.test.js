@@ -1,7 +1,7 @@
 import { loadLocalState, writeConfig, writeMemories } from './storage';
 
 const config = {
-  firstName: 'Floyd',
+  firstName: 'Coconut',
   secondName: 'Mio',
   startDate: '2025-04-23T21:36',
   greeting: '今天很好。',
@@ -29,10 +29,10 @@ test('opens first use with the established start and one editable memory without
   const result = loadLocalState();
 
   expect(result).toMatchObject({
-    config: { firstName: 'Floyd', secondName: 'Mio', startDate: '2025-03-15T18:00' },
+    config: { firstName: 'Coconut', secondName: 'Mio', startDate: '2026-11-02T18:00' },
     memories: [{
       id: 'origin',
-      date: '2025-03-15',
+      date: '2026-11-02',
       title: '故事的开始',
       note: '从这一天起，我们开始一起记录时间。',
       image: '',
@@ -48,7 +48,7 @@ test('falls back from malformed or invalid-shaped data without overwriting the s
 
   const result = loadLocalState();
 
-  expect(result.config.startDate).toBe('2025-03-15T18:00');
+  expect(result.config.startDate).toBe('2026-11-02T18:00');
   expect(result.memories).toHaveLength(1);
   expect(result.notice).toMatch(/读取/);
   expect(localStorage.getItem('anniversary-config')).toBe('{unfinished');
@@ -56,12 +56,12 @@ test('falls back from malformed or invalid-shaped data without overwriting the s
 });
 
 test('fills invalid config fields while keeping recoverable text and the stored value', () => {
-  const stored = JSON.stringify({ ...config, firstName: ['Floyd'], startDate: '2025-02-29T12:00' });
+  const stored = JSON.stringify({ ...config, firstName: ['Coconut'], startDate: '2025-02-29T12:00' });
   localStorage.setItem('anniversary-config', stored);
 
   const result = loadLocalState();
 
-  expect(result.config).toEqual({ ...config, startDate: '2025-03-15T18:00' });
+  expect(result.config).toEqual({ ...config, startDate: '2026-11-02T18:00' });
   expect(result.notice).toMatch(/读取/);
   expect(localStorage.getItem('anniversary-config')).toBe(stored);
 });
@@ -105,7 +105,7 @@ test('returns usable defaults when the browser denies access to local storage', 
 
   const result = loadLocalState();
 
-  expect(result.config.firstName).toBe('Floyd');
+  expect(result.config.firstName).toBe('Coconut');
   expect(result.memories).toHaveLength(1);
   expect(result.notice).toMatch(/读取/);
 });

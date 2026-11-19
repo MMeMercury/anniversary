@@ -66,7 +66,7 @@ test('keeps unsaved settings open and explains storage quota errors', () => {
   fireEvent.click(dialog.getByRole('button', { name: '保存设置' }));
   expect(screen.getByRole('dialog')).toBeInTheDocument();
   expect(dialog.getByRole('alert')).toHaveTextContent(/空间|存储|保存/);
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Floyd');
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Coconut');
 });
 
 test('Escape closes the letter and restores focus', () => {
@@ -93,6 +93,6 @@ test('recovers from malformed storage without overwriting it', () => {
   localStorage.setItem('anniversary-config', 'null');
   localStorage.setItem('anniversary-memories', '{broken');
   render(<HomePage />);
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Floyd');
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Coconut');
   expect(localStorage.getItem('anniversary-memories')).toBe('{broken');
 });

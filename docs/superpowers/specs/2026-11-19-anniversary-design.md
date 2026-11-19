@@ -6,7 +6,7 @@ Upgrade `MMeMercury/anniversary` in the original repository. The user approved i
 
 ## Experience
 
-- Keep Floyd, Mio and the local start time `2025-03-15T18:00` as the existing defaults.
+- Keep Coconut, Mio and the local start time `2026-11-02T18:00` as the existing defaults.
 - A responsive Chinese single-page site with pastel pink/blue, dark split-flap time cards, a plain-text typewriter greeting, subtle hearts, and optional confetti.
 - Show elapsed days/hours/minutes/seconds. A future start date switches the main clock to a nonnegative countdown.
 - Show the next anniversary, using calendar days and recognizing the whole anniversary date as today. February 29 anniversaries use February 28 in non-leap years; future starts show the beginning milestone, never negative anniversaries.
