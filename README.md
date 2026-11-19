@@ -1,8 +1,6 @@
-# Anniversary — GitHub Pages build
+# Anniversary static website
 
-Coconut & Mio · 2026-11-12 23:23.
-Built from source commit d00ac449a35bd64a0dc19baca1099f9a162fa604.
-Publishing source: gh-pages branch, /(root).
+Published from MMeMercury/anniversary master commit 13200e2fe882197aa62a10a0ca9c5d55277b070a.
 
-Rebuild from master with PUBLIC_URL=/anniversary GENERATE_SOURCEMAP=false npm run build.
-Publish the contents of build/ and keep .nojekyll.
+Source: https://github.com/MMeMercury/anniversary
+Site: https://mmemercury.github.io/anniversary/
