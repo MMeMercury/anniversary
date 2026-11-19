@@ -1,32 +1,20 @@
-// src/components/FlipDigit.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './FlipDigit.scss';
 
-const FlipDigit = ({ digit }) => {
-  const [prevDigit, setPrevDigit] = useState(digit);
-  const [flipping, setFlipping] = useState(false);
-
+export default function FlipDigit({ digit }) {
+  const [previous, setPrevious] = useState(digit);
+  const flipping = previous !== digit;
   useEffect(() => {
-    if (digit !== prevDigit) {
-      setFlipping(true);
-      const timeout = setTimeout(() => {
-        setFlipping(false);
-        setPrevDigit(digit);
-      }, 500);
-      return () => clearTimeout(timeout);
-    }
-  }, [digit, prevDigit]);
-
+    if (previous === digit) return undefined;
+    const timer = setTimeout(() => setPrevious(digit), 480);
+    return () => clearTimeout(timer);
+  }, [digit, previous]);
   return (
-    <div className="flip-digit">
-      <div className="upper">{flipping ? prevDigit : digit}</div>
-      <div className="lower">{digit}</div>
-      <div className={`flip ${flipping ? 'animate' : ''}`}>
-        <div className="flip-top">{prevDigit}</div>
-        <div className="flip-bottom">{digit}</div>
-      </div>
+    <div className={`flip-digit${flipping ? ' is-flipping' : ''}`}>
+      <div className="digit-upper"><span>{digit}</span></div>
+      <div className="digit-lower"><span>{flipping ? previous : digit}</span></div>
+      {flipping && <><div className="digit-flap digit-flap-top"><span>{previous}</span></div><div className="digit-flap digit-flap-bottom"><span>{digit}</span></div></>}
+      <i className="digit-hinge" />
     </div>
   );
-};
-
-export default FlipDigit;
+}
